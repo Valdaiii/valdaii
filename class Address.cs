@@ -1,4 +1,4 @@
-using System
+using System;
 class Address
 {
     private string index;
@@ -7,62 +7,61 @@ class Address
     private string street;
     private string house;
     private string apartment;
-    public string name = public object this[int index];
+    public string Index
     {
-        get {return index;  }
-        setet {index = value; }
+        get { return index; }
+        set { index = value; }
     }
-    public string name = public object this[int country];
+    public string Country
     {
-        get {return country;}
-        set {country = value;}
+        get { return country; }
+        set { country = value; }
     }
-    public string name = public object this[int city];
+    public string City
     {
-        get {return city;}
-        set {city = value;}
+        get { return city; }
+        set { city = value; }
     }
-    public string name = public object this[int street]
+    public string Street
     {
-        get {return street;}
-        set {street = value;}
+        get { return street; }
+        set { street = value; }
     }
-    public string name = public object this[int house]
+    public string House
     {
-        get {return house;}
-        set {house = value;}
+        get { return house; }
+        set { house = value; }
     }
-    public string name = public object this[int apartment]
+    public string Apartment
     {
-        get {return apartment;}
-        set {apartment = value;}
+        get { return apartment; }
+        set { apartment = value; }
     }
-    
-}
-    class Address
-    {
-       static void Main() 
-       {
-        Address address = new Address();
-        
-        address index = "40576";
-        address country = "Україна";
-        address city = "Львів";
-        address street = "Незалежності";
-        address house = "10а";
-        address apartment = "503";
 
-        Console.WriteLine("Індекс" + address.index);
-        Console.WriteLine("Країна" + address.country);
-        Console.WriteLine("Місто" + address.city);
-        Console.WriteLine("Вулиця" + address.street);
-        Console.WriteLine("Будинок" + address.house);
-        Console.WriteLine("Квартира" + address.apartment);
+}
+class Program
+{
+    static void Main()
+    {
+        Address address = new Address();
+
+        address.Index = "40576";
+        address.Country = "Ukraine";
+        address.City = "Lviv";
+        address.Street = "Indecency";
+        address.House = "10а";
+        address.Apartment = "503";
+
+        Console.WriteLine("Index" + address.Index);
+        Console.WriteLine("Country" + address.Country);
+        Console.WriteLine("City" + address.City);
+        Console.WriteLine("Street" + address.Street);
+        Console.WriteLine("Hous" + address.House);
+        Console.WriteLine("Apartment" + address.Apartment);
 
         Console.ReadLine();
-       }
     }
-
+}
 
 
 
