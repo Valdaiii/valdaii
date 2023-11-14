@@ -1,153 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>My CV</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <title>Google Search</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="cv">
-    <section>
-      <h1>Владислав Журавель</h1>
-      <h2>Адміністратор</h2>
-      <h4>Системний адміністратор · Ucloud</h4>
 
-      <div class="theme-switch-wrapper">
-        <label class="theme-switch">
-          <input type="checkbox" class="theme-switch__checkbox"/>
+<header>
+  <h1>Google Search</h1>
+  <nav>
+    <a href="search.html">Пошук</a>
+    <a href="images.html">Пошук зображень</a>
+    <a href="advanced.html">Розширений пошук</a>
+  </nav>
+</header>
+
+<main>
+  <section id="search">
+    <form action="results.php" method="get">
+      <input type="text" name="q" placeholder="Що ви шукаєте?">
+      <input type="submit" value="Пошук Google">
+    </form>
+  </section>
+
+  <section id="images">
+    <form action="images-results.php" method="get">
+      <input type="text" name="q" placeholder="Знайти зображення">
+      <input type="submit" value="Пошук">
+    </form>
+  </section>
+
+  <section id="advanced">
+    <form action="advanced-results.php" method="get">
+      <div class="field">
+        <label for="all_words">Знайти сторінки із...</label>
+        <input type="text" name="all_words" id="all_words">
       </div>
-
-      <div class="contacts">
-        <div class="contact">
-          <div class="contact__type">
-            Github
-          </div>
-          <div class="contact__value">
-            <a href="https://github.com/Valdaiii/valdaii/tree/master">github.com/Valdaiii/valdaii/tree/master</a>
-          </div>
-        </div>
-        <div class="contact">
-          <div class="contact__type">
-            Email
-          </div>
-          <div class="contact__value">
-            <a href="valdaiii@icloud.com">valdaiii@icloud.com</a>
-          </div>
-        </div>
-        <div class="contact">
-            <div class="contact__type">
-              Phone
-            </div>
-            <div class="contact__value">
-              <a href="+380877432390">+380877432390</a>
-            </div>
-          </div>
+      <div class="field">
+        <label for="exact_phrase">Знайти сторінки з...</label>
+        <input type="text" name="exact_phrase" id="exact_phrase">
       </div>
-      <div class="description">
-        Ще з самого дитинства був зацікавлений в сфері IT, з шкільного дитинства дивися и вивчав програмування також про допомогу просив о вивченні програмування свого дядька, але він мені розповів про свою сферу діяльність і вона більш мене всього зацікавила і почав розвиватись о цій сфері, через декілька років після вступу в вищий начальний заклад я пішов на стажування в компанію де після стажування залишився в цій же компанії 
+      <div class="field">
+        <label for="any_words">Знайти сторінки з...</label>
+        <input type="text" name="any_words" id="any_words">
       </div>
-    </section>
-
-    <section>
-      <h3>Experience</h3>
-
-      <div class="experience">
-        <div class="experience__date">Грудень 2023 - Київ</div>
-        <div class="experience__description">
-          <div class="experience__name">Адміністратор</div>
-          <div class="experience__company">Ucloud</div>
-        </div>
+      <div class="field">
+        <label for="none_of_these_words">Знайти сторінки без...</label>
+        <input type="text" name="none_of_these_words" id="none_of_these_words">
       </div>
-      <div class="experience">
-        <div class="experience__date">
-          Вересень 2023 - Київ
-        </div>
+      <input type="submit" value="Розширений пошук">
+    </form>
+  </section>
+</main>
 
-        <div class="experience__description">
-          <div class="experience__name">Співробітник</div>
-          <div class="experience__company">Ucloud</div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="experience__date">
-          Липень 2023 - Київ
-        </div>
+<footer>
+  <p>Copyright 2023 Google</p>
+</footer>
 
-        <div class="experience__description">
-          <div class="experience__name">Стажування в компанії</div>
-          <div class="experience__company">Ucloud</div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="experience__date">
-          Грудень 2022 - Бровари
-        </div>
-
-        <div class="experience__description">
-          <div class="experience__name">Бармен в закладі</div>
-          <div class="experience__company">Kaif</div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="experience__date">
-          Серпень 2022 - Бровари
-        </div>
-
-        <div class="experience__description">
-          <div class="experience__name">Бариста</div>
-          <div class="experience__company">Франсуа</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-        <h3>Education</h3>
-  
-        <div class="Education">
-          <div class="Education__date">2023</div>
-          <div class="Education__description">
-            <div class="Education__name">Влаштувався на роботу</div>
-            <div class="Education__company">Ucloud</div>
-          </div>
-        </div>
-        <div class="Education">
-            <div class="Education__date">2022</div>
-            <div class="Education__description">
-              <div class="Education__name">Пройшов стажування в компанії</div>
-              <div class="Education__company">Ucloud</div>
-            </div>
-          </div>
-          <div class="Education">
-            <div class="Education__date">2022</div>
-            <div class="Education__description">
-              <div class="Education__name">Вступив в вищий навчальний заклад</div>
-              <div class="Education__company">На кібербезпекку</div>
-            </div>
-          </div>
-          <div class="Education">
-            <div class="Education__date">2020</div>
-            <div class="Education__description">
-              <div class="Education__name">Закінчив курси по програмуванню</div>
-              <div class="Education__company">DAN.IT</div>
-            </div>
-          </div>
-          <div class="Education">
-            <div class="Education__date">2019</div>
-            <div class="Education__description">
-              <div class="Education__name">Закінчив курси по графічному дизайну</div>
-              <div class="Education__company">SKVOT</div>
-            </div>
-          </div>
-      </section>
-      <section>
-        <h3>Skills</h3>
-        <div>
-          Figma,HTML,C#
-        </div>
-      </section>
-      <script src='js/script.js'></script>
 </body>
 </html>
