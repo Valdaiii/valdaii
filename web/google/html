@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Google Search</h1>
+  <nav>
+    <a href="search.html">Пошук</a>
+    <a href="images.html">Пошук зображень</a>
+    <a href="advanced.html">Розширений пошук</a>
+  </nav>
+</header>
+
+<main>
+  <section id="search">
+    <form action="results.php" method="get">
+      <input type="text" name="q" placeholder="Що ви шукаєте?">
+      <input type="submit" value="Пошук Google">
+    </form>
+  </section>
+
+  <section id="images">
+    <form action="images-results.php" method="get">
+      <input type="text" name="q" placeholder="Знайти зображення">
+      <input type="submit" value="Пошук">
+    </form>
+  </section>
+
+  <section id="advanced">
+    <form action="advanced-results.php" method="get">
+      <div class="field">
+        <label for="all_words">Знайти сторінки із...</label>
+        <input type="text" name="all_words" id="all_words">
+      </div>
+      <div class="field">
+        <label for="exact_phrase">Знайти сторінки з...</label>
+        <input type="text" name="exact_phrase" id="exact_phrase">
+      </div>
+      <div class="field">
+        <label for="any_words">Знайти сторінки з...</label>
+        <input type="text" name="any_words" id="any_words">
+      </div>
+      <div class="field">
+        <label for="none_of_these_words">Знайти сторінки без...</label>
+        <input type="text" name="none_of_these_words" id="none_of_these_words">
+      </div>
+      <input type="submit" value="Розширений пошук">
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>Copyright 2023 Google</p>
+</footer>
+
+</body>
+</html>
