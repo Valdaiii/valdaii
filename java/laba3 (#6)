@@ -1,0 +1,69 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        // Заданий масив цілих чисел
+        int[] array = {1, 8, 1, 6, 0, -5, 1, -7, 8, 9, -10};
+
+        // Обчислити кількість додатних елементів масиву
+        int positiveCount = countPositiveElements(array);
+        System.out.println("Кількість додатних елементів масиву: " + positiveCount);
+
+        // Знайти останній елемент масиву, рівний нулю
+        int lastZeroIndex = findLastZeroIndex(array);
+        System.out.println("Останній елемент масиву, рівний нулю: " + lastZeroIndex);
+
+        // Обчислити суму елементів масиву, розташованих після останнього нульового елемента
+        int sumAfterLastZero = sumAfterLastZero(array, lastZeroIndex);
+        System.out.println("Сума елементів масиву, розташованих після останнього нульового елемента: " + sumAfterLastZero);
+
+        // Перетворити масив так, щоб спочатку розташовувалися всі елементи, ціла частина яких не перевищує 1, а потім - всі інші
+        transformArray(array);
+        System.out.println("Масив після перетворення: " + Arrays.toString(array));
+    }
+
+    // Метод для обчислення кількості додатних елементів масиву
+    public static int countPositiveElements(int[] arr) {
+        int count = 0;
+        for (int num : arr) {
+            if (num > 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // Метод для знаходження індексу останнього елемента масиву, рівного нулю
+    public static int findLastZeroIndex(int[] arr) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] == 0) {
+                return i;
+            }
+        }
+        return -1; // Якщо нульових елементів немає
+    }
+
+    // Метод для обчислення суми елементів масиву, розташованих після останнього нульового елемента
+    public static int sumAfterLastZero(int[] arr, int lastIndex) {
+        int sum = 0;
+        if (lastIndex != -1) {
+            for (int i = lastIndex + 1; i < arr.length; i++) {
+                sum += arr[i];
+            }
+        }
+        return sum;
+    }
+
+    // Метод для перетворення масиву
+    public static void transformArray(int[] arr) {
+        int index = 0;
+        // Розділення елементів масиву на два списки: елементи, ціла частина яких не перевищує 1, та інші елементи
+        for (int i = 0; i < arr.length; i++) {
+            if (Math.abs(arr[i]) <= 1) {
+                int temp = arr[index];
+                arr[index++] = arr[i];
+                arr[i] = temp;
+            }
+        }
+    }
+}
