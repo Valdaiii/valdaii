@@ -1,0 +1,73 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        // Заданий масив дійсних чисел
+        double[] array = {1.0, -1.7, 9.8, 1.2, -6.1, -2.3, 1.4};
+
+        // Обчислити добуток від'ємних елементів масиву
+        double negativeProduct = calculateNegativeProduct(array);
+        System.out.println("Добуток від'ємних елементів масиву: " + negativeProduct);
+
+        // Знайти максимальний елемент у масиві
+        double maxElement = findMaxElement(array);
+        System.out.println("Максимальний елемент масиву: " + maxElement);
+
+        // Обчислити суму додатних елементів масиву, розташованих до максимального елемента
+        double sumPositiveBeforeMax = sumPositiveBeforeMax(array, maxElement);
+        System.out.println("Сума додатних елементів масиву до максимального елемента: " + sumPositiveBeforeMax);
+
+        // Змінити порядок проходження елементів у масиві на зворотний
+        reverseArray(array);
+        System.out.println("Масив після зворотного порядку: " + Arrays.toString(array));
+    }
+
+    // Метод для обчислення добутку від'ємних елементів масиву
+    public static double calculateNegativeProduct(double[] arr) {
+        double product = 1.0;
+        for (double num : arr) {
+            if (num < 0) {
+                product *= num;
+            }
+        }
+        return product;
+    }
+
+    // Метод для знаходження максимального елемента масиву
+    public static double findMaxElement(double[] arr) {
+        double max = arr[0];
+        for (double num : arr) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
+    }
+
+    // Метод для обчислення суми додатних елементів масиву, розташованих до максимального елемента
+    public static double sumPositiveBeforeMax(double[] arr, double max) {
+        double sum = 0;
+        for (double num : arr) {
+            if (num == max) {
+                break;
+            }
+            if (num > 0) {
+                sum += num;
+            }
+        }
+        return sum;
+    }
+
+    // Метод для зміни порядку проходження елементів у масиві на зворотний
+    public static void reverseArray(double[] arr) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < right) {
+            double temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+    }
+}
