@@ -1,0 +1,88 @@
+import java.util.Arrays;
+
+    public class Main {
+        public static void main(String[] args) {
+            // Заданий масив дійсних чисел
+            double[] array = {10.5, 0.3, 5.8, -1.8, 0.1, -1.6, -2.4, 5.5};
+
+            // Знайти номер мінімального елемента масиву
+            int minIndex = findMinIndex(array);
+            System.out.println("Номер мінімального елемента масиву: " + minIndex);
+
+            // Знайти перший і другий від'ємні елементи масиву
+            int firstNegativeIndex = findFirstNegativeIndex(array);
+            int secondNegativeIndex = findSecondNegativeIndex(array);
+            System.out.println("Перший від'ємний елемент: " + array[firstNegativeIndex]);
+            System.out.println("Другий від'ємний елемент: " + array[secondNegativeIndex]);
+
+            // Обчислити суму елементів масиву, розташованих між першим і другим від'ємними елементами
+            double sumBetweenNegatives = sumBetweenNegatives(array, firstNegativeIndex, secondNegativeIndex);
+            System.out.println("Сума елементів масиву, розташованих між першим і другим від'ємними елементами: " + sumBetweenNegatives);
+
+            // Перетворити масив так, щоб спочатку розташовувалися всі елементи, модуль яких не перевищує 1, а потім - всі інші
+            transformArray(array);
+            System.out.println("Масив після перетворення: " + Arrays.toString(array));
+        }
+
+        // Метод для знаходження номера мінімального елемента масиву
+        public static int findMinIndex(double[] arr) {
+            int minIndex = 0;
+            for (int i = 1; i < arr.length; i++) {
+                if (arr[i] < arr[minIndex]) {
+                    minIndex = i;
+                }
+            }
+            return minIndex;
+        }
+
+        // Метод для знаходження першого від'ємного елемента масиву
+        public static int findFirstNegativeIndex(double[] arr) {
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] < 0) {
+                    return i;
+                }
+            }
+            return -1; // Якщо від'ємних елементів немає
+        }
+
+        // Метод для знаходження другого від'ємного елемента масиву
+        public static int findSecondNegativeIndex(double[] arr) {
+            int countNegatives = 0;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] < 0) {
+                    countNegatives++;
+                    if (countNegatives == 2) {
+                        return i;
+                    }
+                }
+            }
+            return -1; // Якщо в масиві менше двох від'ємних елементів
+        }
+
+        // Метод для обчислення суми елементів масиву, розташованих
+        public static double sumBetweenNegatives(double[] arr, int firstIndex, int secondIndex) {
+            double sum = 0;
+            // Перевірка на правильність індексів та обчислення суми
+            if (firstIndex != -1 && secondIndex != -1) {
+                int startIndex = Math.min(firstIndex, secondIndex) + 1;
+                int endIndex = Math.max(firstIndex, secondIndex);
+                for (int i = startIndex; i < endIndex; i++) {
+                    sum += arr[i];
+                }
+            }
+            return sum;
+        }
+
+        // Метод для перетворення масиву
+        public static void transformArray(double[] arr) {
+            // Розділення елементів масиву на два списки: елементи з модулем менше або рівні 1 та інші елементи
+            int index = 0;
+            for (int i = 0; i < arr.length; i++) {
+                if (Math.abs(arr[i]) <= 1) {
+                    double temp = arr[index];
+                    arr[index++] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+    }
