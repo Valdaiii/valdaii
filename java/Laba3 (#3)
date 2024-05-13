@@ -1,0 +1,64 @@
+ import java.util.Arrays;
+
+        public class Main {
+            public static void main(String[] args) {
+                // Заданий масив дійсних чисел
+                double[] array = {0.5, 1.7, 9.8, -4.2, 1.1, -6.3, 8.4};
+
+                // Знайти максимальний елемент у масиві
+                double max = findMax(array);
+                System.out.println("Максимальний елемент масиву: " + max);
+
+                // Знайти останній додатний елемент та обчислити суму елементів до нього
+                double sum = sumBeforeLastPositive(array);
+                System.out.println("Сума елементів до останнього додатного елемента: " + sum);
+
+                // Задані інтервал [a, b]
+                double a = 6.0;
+                double b = 2.0;
+
+                // Стиснути масив, видаливши елементи з модулем у заданому інтервалі [a, b]
+                compressArray(array, a, b);
+
+                // Друк масиву після стиснення
+                System.out.println("Масив після стиснення: " + Arrays.toString(array));
+            }
+
+            // Метод для знаходження максимального елемента у масиві
+            public static double findMax(double[] arr) {
+                double max = Double.MIN_VALUE;
+                for (double num : arr) {
+                    if (num > max) {
+                        max = num;
+                    }
+                }
+                return max;
+            }
+
+            // Метод для обчислення суми елементів масиву до останнього додатного елемента
+            public static double sumBeforeLastPositive(double[] arr) {
+                double sum = 0;
+                int lastIndex = -1;
+                for (int i = 0; i < arr.length; i++) {
+                    if (arr[i] > 0) {
+                        sum += arr[i];
+                        lastIndex = i;
+                    }
+                }
+                return sum;
+            }
+
+            // Метод для стиснення масиву, видаляючи елементи з модулем у заданому інтервалі [a, b]
+            public static void compressArray(double[] arr, double a, double b) {
+                int index = 0;
+                for (int i = 0; i < arr.length; i++) {
+                    if (Math.abs(arr[i]) < a || Math.abs(arr[i]) > b) {
+                        arr[index++] = arr[i];
+                    }
+                }
+                // Заповнення нулями елементів, що звільнилися в кінці масиву
+                while (index < arr.length) {
+                    arr[index++] = 0.0;
+                }
+            }
+        }
